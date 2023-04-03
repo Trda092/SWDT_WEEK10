@@ -2,7 +2,7 @@ services:
   html-static-site: 
     build: ./html-static-site
     ports:
-      - "80:80"
+      - "8090:80"
   backend-site:
     build: ./backend-site
     ports:
