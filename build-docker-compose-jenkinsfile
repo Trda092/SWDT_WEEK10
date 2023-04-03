@@ -5,6 +5,7 @@ pipeline {
             steps {
                 sh 'echo Build in progress.'
                 sh 'cd backend-site'
+                sh 'ls'
                 sh 'docker build -t backend:v1 .'
                 sh 'docker run -d -p 8088:80 backend:v1'
             }
