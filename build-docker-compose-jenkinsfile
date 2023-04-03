@@ -4,8 +4,9 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo Build in progress.'
-                sh 'ls'
-                sh 'docker-compose up'
+                sh 'cd backend-site'
+                sh 'docker build -t backend:v1 .'
+                sh 'docker run -d -p 8088:80 backend:v1'
             }
     }
 }
