@@ -104,10 +104,7 @@ chmod +x install_git_docker_dockercompose.sh
 ```
 
 ## 9.Adds the user "jenkins" to the "docker" group, which allows the user to run Docker #commands without needing to use sudo.
- ```
-sudo usermod -aG docker $USER
-sudo groupadd docker
-```
+
  ```
 sudo usermod -aG docker jenkins
 sudo groupadd jenkins
@@ -118,12 +115,7 @@ sudo groupadd jenkins
 http://<your_instance_ip>:8080
 ```
 
-## 11. Initial Jenkins admin password:"
-```
-sudo cat /var/lib/jenkins/secrets/initialAdminPassword
-```
-
-## 12. Run the following command to install the Docker plugin:
+## 11. Run the following command to install the Docker plugin:
 
 ```
 sudo chmod 666 /var/run/docker.sock 
