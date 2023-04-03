@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo Build in progress.'
-                sh 'sudo docker images'
+                sh 'docker --version'
             }
     }
 }
