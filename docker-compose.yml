@@ -1,0 +1,9 @@
+services:
+  html-static-site: 
+    build: ./html-static-site
+    ports:
+      - "80:80"
+  backend-site:
+    build: ./backend-site
+    ports:
+      - "8088:80"
