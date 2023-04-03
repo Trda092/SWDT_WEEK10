@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Process</title>
 </head>
-<body>
-    <input type="file" onchange="convertimage(this)">
-    <button onclick="getImg()">click</button>
-</body>
-<script>
-    let img = null;
-    let name = "tada"
-    let surname = "ampornprasert"
-    let number = [1, 2, 3, 4, 5]
-    function convertimage(element){
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            // console.log('RESULT', reader.result);
-            img = reader.result;
-        }
-        reader.readAsDataURL(element.files[0]);
-    }
 
-    async function getImg(){
-        if (img === null) {
-            alert("Please select an image file first.");
-            return;
-        }
+<body style="justify-content: center; display: flex;">
+    <div style="width: 500; height: 500;">
+        <h1 style="text-align: center;">เลือกรูป</h1>
+        <form action="" style="display: flex; justify-content: center;">
+            <input type="file" id="img" name="img" accept="image/*">
+            <button type="button" onclick="con_img()"> convert </button>
+        </form><br>
+        <img src="" id="pic" width="300" height="300" />
+        <img src="" id="pro_pic" width="300" height="300" />
+    </div>
 
-        let formData = {
-            image: img,
-            name: name,
-            surname: surname,
-            numbers: number
-        }
-        let request = await fetch('http://localhost:8088/process-image', {
-            method:"POST",
-            headers: {
-                    "Content-Type": "application/json"
+    <script>
+        let image = null
+        function con_img() {
+            fetch("http://43.207.77.250:8088/process-image", {
+                method: "POST",
+                body: JSON.stringify({image, name: "test", surname: "test", numbers: "test"}),
+                headers: {
+                    'Content-Type': 'application/json'
                 },
-            body: JSON.stringify(formData) 
-        })
-        console.log(formData);;
-        const response = await request.json();
-        console.log(response);
-    }
-</script>
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    pro_pic.src = data.processed_image
+                })
+                .catch(error => {
+                    console.log(error)
+                });
+        }
+        const fileInput = document.querySelector('#img');
+        fileInput.addEventListener('change', (event) => {
+            const file = event.target.files[0];
+            const fileName = file.name;
+            const reader = new FileReader();
+            reader.addEventListener('load', (event) => {
+                pic.setAttribute('src', event.target.result);
+                image = event.target.result
+            });
+            reader.readAsDataURL(file);
+        });
+    </script>
+</body>
+
 </html>
