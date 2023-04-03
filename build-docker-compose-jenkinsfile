@@ -4,9 +4,9 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo Build in progress.'
-                sh 'sudo groupadd docker'
-                sh 'sudo usermod -aG docker ec2-user'
-                sh 'sudo newgrp docker'
+                sh 'groupadd docker'
+                sh 'usermod -aG docker ec2-user'
+                sh 'newgrp docker'
                 dir('backend-site'){
                 sh 'ls'
                 sh 'docker build -t backend:v1 .'
