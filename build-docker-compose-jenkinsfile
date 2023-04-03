@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo Build in progress.'
-                sh 'service docker status'
+                sh 'docker-compose up'
             }
     }
 }
