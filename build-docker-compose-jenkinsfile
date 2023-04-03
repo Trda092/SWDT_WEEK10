@@ -16,7 +16,7 @@ pipeline {
                 steps {
                     dir('SWDT_WEEK10') {
                         echo "Current path is ${pwd()}"
-                        sh "docker-compose up"
+                        sh "docker-compose build"
                     }
                 }
             }
