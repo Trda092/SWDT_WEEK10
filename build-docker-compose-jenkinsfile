@@ -6,8 +6,8 @@ pipeline {
                 sh 'echo Build in progress.'
                 dir('backend-site'){
                 sh 'ls'
-                sh 'docker build -t backend:v1 .'
-                sh 'docker run -d -p 8088:80 backend:v1'
+                sh 'sudo docker build -t backend:v1 .'
+                sh 'sudo docker run -d -p 8088:80 backend:v1'
             }
             }
     }
