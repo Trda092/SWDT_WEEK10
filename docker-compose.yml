@@ -1,10 +1,14 @@
-version: "3"
+version: '3'
+
 services:
-  html-static-site: 
-    build: ./html-static-site
-    ports:
-      - "8090:80"
-  backend-site:
-    build: ./backend-site
-    ports:
-      - "8088:80"
+  backend:
+    build:
+      context: ./backend-site
+      dockerfile: Dockerfile
+    image: trdamp/backend-site:v1
+
+  frontend:
+    build:
+      context: ./html-static-site
+      dockerfile: Dockerfile
+    image: trdamp/html-static-site:v1
