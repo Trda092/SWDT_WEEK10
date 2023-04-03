@@ -4,8 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh 'echo Build in progress.'
-                sh 'systemctl status docker'
-                sh 'docker-compose up'
+                sh 'docker images'
             }
     }
 }
