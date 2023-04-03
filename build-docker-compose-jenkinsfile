@@ -18,6 +18,7 @@ pipeline {
                         sh "ls"
                         echo "Current path is ${pwd()}"
                         sh "docker-compose build"
+                        echo "build success"
                     }
                 }
             }
