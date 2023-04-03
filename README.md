@@ -1,4 +1,13 @@
 # SWDT_WEEK10
+### 1. Lab 9 Video demo :
+```
+https://drive.google.com/drive/folders/1yH64WXvS8pfZrjHPi74sljzOibXjVfDz?usp=share_link
+```
+### 2. Lab 10 Video demo :
+```
+https://drive.google.com/drive/folders/1oBSn1z5j1-Q4UjXCWaH1m5xMz3Ieu2Lq?usp=sharing
+```
+
 
 # Install jenkins, docker, docker-compose, and git 
 
