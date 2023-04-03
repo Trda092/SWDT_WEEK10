@@ -33,7 +33,7 @@ pipeline {
                 }
             }
 
-            stage('Trigger to slave job'){
+            stage('Trigger to puller job'){
                 steps {
                     build job: 'docker-pull-pipeline'
                 }
